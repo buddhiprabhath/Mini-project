@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shopping-cart-660b4": {
+      "hosting": {
+        "ShoppingCart": [
+          "shopping-cart-660b4"
+        ]
+      }
+    }
+  }
+}

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.fa-heart{
+    color: palevioletred;
+    cursor: pointer;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    cursor: not-allowed;
+}
+
+.transparent {
+    background-color: transparent;
+    position: relative;
+}
+
+.login-form {
+    background: rgba( 0, 0, 0, 0,6);
+}
