@@ -20,3 +20,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .login-form {
     background: rgba( 0, 0, 0, 0,6);
 }
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+  
+  .img-wrapper {
+    position: relative;
+   }
+
+   ul{
+       list-style-type:none;
+   }
+
+   a{
+       color: inherit;
+   }
