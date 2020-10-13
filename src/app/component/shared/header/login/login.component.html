@@ -1,53 +1,61 @@
 
-    <div class="row">
-        <div class="col-md-4 offset-md-4">
-            <div class="login-form">
-    
-            <div class="card" style="background:transparent;  color: #fff;  ">
-    
-                <div class="card-header text-center ">
-                    <img src="assets/Images/contact.png" alt="" style="height: 100px;height: 100px; top: -50px; left: calc(50% - 50px); position: absolute; border-radius: 50%;" class="avatar">
-                    <br><br>
-                    <h2>Login Here</h2>
-                </div>
-    
-                <div class="card-body">
-                    <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
-                        <div class="form-group">
-                            <label for="useremail">E-mail</label>
-                            <input id="email" name="usermail" #username="ngModel" class="form-control" [ngClass]="{'is-invalid': username.touched && username.invalid}" type="email" [(ngModel)]="model.username" required>
-                            <span class="invalid-feedback">Username can not be blank</span>
-                        </div>
-                 
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" #password="ngModel" class="form-control"  [ngClass]="{'is-invalid': username.touched && password.invalid}" id="password" [(ngModel)]="model.password" required>
-                            <span class="invalid-feedback">Password can't be blank</span>
-                        </div>
-    
-                        <div class="form-group">
-                            <input type="checkbox" name="remember" #remember="ngModel" id="remember" [(ngModel)]="model.remember" required>
-                            <label class="ml-1" for="remember">Remember Me</label>
-                        </div>
-                         
-                         
-                        <div class="align-center">
-                            <button class="btn btn-primary btn-block " [disabled]="loginForm.invalid">Login</button>
-                             
-                        </div> 
-                        
-                 </form>
-                </div>
-            </div>
-    
-            </div>
-           
-        </div>
-    
+<html>
+    <body style="background-color: coral;">
+        <div class="row" *ngIf="!isSignedIn">
+            <div class="col-md-4 offset-md-4">
+                <div class="login-form">
         
-     
-    </div>
+                <div class="card" style="background:transparent;  color:black;  ">
+        
+                    <div class="card-header text-center ">
+                        <img src="assets/Images/contact.png" alt="" style="height: 100px;height: 100px; top: -50px; left: calc(50% - 50px); position: absolute; border-radius: 50%;" class="avatar">
+                        <br><br>
+                        <h2>Login Here</h2>
+                    </div>
+        
+                    <div class="card-body">
+                        <form #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
+                            <div class="form-group">
+                                <label for="useremail">E-mail</label>
+                                <input id="email" name="usermail" #username="ngModel" class="form-control" [ngClass]="{'is-invalid': username.touched && username.invalid}" type="email" [(ngModel)]="model.username" required>
+                                <span class="invalid-feedback">Username can not be blank</span>
+                            </div>
+                     
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" #password="ngModel" class="form-control"  [ngClass]="{'is-invalid': username.touched && password.invalid}" id="password" [(ngModel)]="model.password" required>
+                                <span class="invalid-feedback">Password can't be blank</span>
+                            </div>
+        
+                            <div class="form-group">
+                                <input type="checkbox" name="remember" #remember="ngModel" id="remember" [(ngModel)]="model.remember" required>
+                                <label class="ml-1" for="remember">Remember Me</label>
+                            </div>
+                             
+                             
+                            <div class="align-center">
+                                <button class="btn btn-primary btn-block " [disabled]="loginForm.invalid" (click)="onSignin(email.value,password.value)">Login</button>
+                                 
+                            </div> 
+                            
+                     </form>
+                    </div>
+                </div>
+        
+                </div>
+               
+            </div>
+        
+            
+         
+        </div>
+
+        <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
+    </body>
+       
+        
+        
     
     
-
-
+    
+</html>

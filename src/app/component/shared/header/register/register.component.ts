@@ -1,8 +1,10 @@
+
 //import { AuthService } from './../../../../services/auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormGroup,FormBuilder, Validators, EmailValidator} from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { FirebaseService } from './../../../../services/firebase.service';
 /**
  * 
  * @param form  
@@ -47,7 +49,8 @@ authError: any;
 
 registerForm: FormGroup;
 
-  constructor(private builder: FormBuilder,private auth: AngularFireAuth, private router: Router) { }
+@Output() isLogout = new EventEmitter<void>()
+  constructor(private builder: FormBuilder,private auth: AngularFireAuth, private router: Router,public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
    this.buildForm()
@@ -55,6 +58,11 @@ registerForm: FormGroup;
      // this.authError =data;
     //})
 
+  }
+
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
   }
 
  // createUser(frm){

@@ -1,3 +1,4 @@
+import { FirebaseService } from './services/firebase.service';
 import { MassengerService } from './services/massenger.service';
 //import { ProductListComponent } from './component/shopping-cart/product-list/product-list.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -82,10 +83,19 @@ import { ImageListComponent } from './component/images/image-list/image-list.com
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp( {
+      apiKey: "AIzaSyDCskQkVS4SD_JhHm11fF6iPrV-Vd0J_GE",
+      authDomain: "shopping-cart-660b4.firebaseapp.com",
+      databaseURL: "https://shopping-cart-660b4.firebaseio.com",
+      projectId: "shopping-cart-660b4",
+      storageBucket: "shopping-cart-660b4.appspot.com",
+      messagingSenderId: "552981248017",
+      appId: "1:552981248017:web:41848d1c32d64ed91859b0",
+      measurementId: "G-S8ZB9K7699"
+    }),
     AngularFireDatabaseModule
   ],
-  providers: [MassengerService],
+  providers: [MassengerService,FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

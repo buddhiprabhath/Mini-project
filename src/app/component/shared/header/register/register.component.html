@@ -1,6 +1,6 @@
-<div class="row">
+<div *ngIf="!isSignedIn"  class="row">
     <div class="col-md-4 offset-md-4">
-        <div class="card" style="background:transparent; color: #fff;">
+        <div class="card" style="background:transparent; color:black">
 
             <div class="card-header text-center ">
                 <h2>Register Here</h2>
@@ -81,7 +81,7 @@
                     
                      
                     <div class="align-center">
-                        <button class="btn btn-primary btn-block " [disabled]="registerForm.invalid">Register </button>
+                        <button class="btn btn-primary btn-block " [disabled]="registerForm.invalid" (click)="onRegister(emailRegister.value,passwordRegister.value)">Register </button>
                     </div> 
                     
              </form>
@@ -95,3 +95,4 @@
     
  
 </div>
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
